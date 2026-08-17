@@ -1,0 +1,148 @@
+*{box-sizing:border-box}
+:root{
+  --cream:#fffbd0;
+  --pink:#ef86a9;
+  --pink2:#f6b1c4;
+  --pink3:#ffd7df;
+  --deep:#a52a61;
+  --ink:#22202a;
+  --white:#fffdfd;
+}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:"Courier New",monospace;
+  image-rendering:auto;
+}
+button{font:inherit;cursor:pointer}
+#ambient{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.topbar{
+  position:fixed;top:0;left:0;right:0;height:31px;z-index:20;
+  background:#b92972;color:#fff;
+  border-bottom:2px solid #2a1c23;
+  box-shadow:0 3px 0 #2a1c23;
+  display:flex;align-items:center;justify-content:space-between;
+  direction:ltr;padding:0 5px;font-size:12px;font-weight:700;
+}
+.brand{display:flex;gap:6px;align-items:center}
+.top-icons{display:flex;height:100%}
+.top-icons button{
+  width:29px;border:0;border-left:1px solid rgba(255,255,255,.3);
+  background:transparent;color:#fff;font-weight:900;
+}
+main{position:fixed;inset:31px 0 0;display:grid;place-items:center;z-index:5}
+.screen{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.intro{gap:11px;padding-bottom:15px}
+.envelope-wrap{
+  width:min(230px,43vw);aspect-ratio:1;border:0;background:transparent;
+  padding:0;display:grid;place-items:center;filter:drop-shadow(0 4px 0 rgba(50,20,30,.08));
+  animation:float 1.5s ease-in-out infinite alternate;
+}
+.envelope-wrap img{width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+.envelope-wrap:hover{animation:bounce .45s ease-in-out infinite alternate}
+.intro-label{
+  background:#f5a5b9;border:2px solid var(--ink);padding:5px 14px;
+  box-shadow:4px 4px 0 var(--ink);font-size:13px;font-weight:800;
+  direction:ltr;
+}
+.hint{font-size:9px;direction:ltr;opacity:.8;animation:blink 1.2s steps(2,end) infinite}
+
+.app-window{
+  width:min(390px,82vw);
+  max-height:min(620px,82vh);
+  background:var(--pink2);
+  border:3px solid #a83263;
+  box-shadow:7px 7px 0 #302029, 0 18px 40px rgba(105,44,64,.15);
+  direction:ltr;
+  transform-origin:center;
+  animation:windowIn .55s cubic-bezier(.2,1.35,.35,1);
+}
+.hidden{display:none!important}
+.titlebar{
+  height:29px;background:#ed91ab;border-bottom:2px solid #a83263;
+  display:flex;align-items:center;justify-content:space-between;padding:0 4px;
+  font-size:11px;font-weight:900;
+}
+.title{display:flex;gap:5px;align-items:center}
+.window-buttons{display:flex;gap:3px}
+.window-buttons button{
+  width:19px;height:19px;padding:0;background:#f8dbe1;
+  border:2px solid #a83263;color:#69304a;font-size:11px;line-height:12px;
+}
+.window-strip{
+  height:24px;border-bottom:2px solid #b15b7b;
+  background:repeating-linear-gradient(0deg,#ffd2dc 0 5px,#f8a7ba 5px 10px);
+  display:flex;align-items:center;justify-content:center;gap:13px;color:#a52a61;font-size:10px;
+}
+.window-content{
+  min-height:420px;padding:22px 20px;
+  background-color:#f6c6d1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.28) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.28) 1px,transparent 1px);
+  background-size:16px 16px;
+  display:grid;place-items:center;
+}
+.panel{width:100%;display:flex;flex-direction:column;align-items:center;gap:15px;text-align:center;animation:panelIn .35s ease}
+.cat{width:min(180px,55vw);height:min(180px,55vw);object-fit:contain;image-rendering:pixelated}
+.message-box{
+  width:100%;background:#fffafc;border:2px solid #c58a9b;
+  padding:10px 8px;box-shadow:inset 2px 2px 0 #ffdbe3,inset -2px -2px 0 #fff;
+  font-size:11px;line-height:1.5;direction:ltr;
+}
+.message-title{font-weight:900}
+.yes-btn,.love-btn{
+  min-width:115px;background:#fff7fa;color:#3a2730;border:2px solid #6e324b;
+  box-shadow:4px 4px 0 #3a2730;padding:7px 18px;font-weight:900;font-size:11px;
+  transition:transform .08s,box-shadow .08s,background .15s;
+}
+.yes-btn:hover,.love-btn:hover{background:#ffb4c7;transform:translate(-1px,-1px)}
+.yes-btn:active,.love-btn:active{transform:translate(4px,4px);box-shadow:0 0 0 #3a2730}
+.yay{font-size:18px;font-weight:900;color:#a72c63;direction:ltr}
+.celebrate-cat{animation:catBounce .75s ease-in-out infinite alternate}
+.small{font-size:10px}
+.sound-btn{
+  position:fixed;right:14px;bottom:14px;z-index:50;
+  width:35px;height:35px;border:2px solid #55303d;background:#ffd5df;
+  box-shadow:3px 3px 0 #55303d;color:#8f2555;font-weight:900;
+}
+.toast{
+  position:fixed;right:55px;bottom:17px;z-index:51;
+  background:#fff9c9;border:2px solid #55303d;padding:5px 8px;font-size:9px;
+  opacity:0;transform:translateY(5px);pointer-events:none;transition:.2s;
+}
+.toast.show{opacity:1;transform:translateY(0)}
+.float-heart{
+  position:absolute;bottom:-30px;left:0;color:#e68ba5;
+  font-size:12px;opacity:.55;animation:heartUp linear forwards;
+}
+.confetti{
+  position:fixed;z-index:40;width:9px;height:9px;pointer-events:none;
+  animation:confetti 2.2s cubic-bezier(.12,.65,.35,1) forwards;
+}
+.heart-pop{
+  position:fixed;z-index:41;pointer-events:none;font-size:20px;
+  animation:heartPop 1.8s ease-out forwards;
+}
+@keyframes float{to{transform:translateY(-7px)}}
+@keyframes bounce{to{transform:translateY(-9px) scale(1.04)}}
+@keyframes blink{50%{opacity:.2}}
+@keyframes windowIn{0%{opacity:0;transform:scale(.65) translateY(25px)}70%{transform:scale(1.04)}100%{opacity:1;transform:scale(1)}}
+@keyframes panelIn{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+@keyframes catBounce{to{transform:translateY(-7px) rotate(-1deg)}}
+@keyframes heartUp{0%{transform:translateY(0) rotate(-8deg);opacity:0}12%{opacity:.55}100%{transform:translateY(-105vh) rotate(20deg);opacity:0}}
+@keyframes confetti{0%{transform:translate(0,-20px) rotate(0);opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(720deg);opacity:0}}
+@keyframes heartPop{0%{transform:translate(0,0) scale(.4);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(1.1);opacity:0}}
+
+@media(max-width:500px){
+  .app-window{width:86vw;max-height:76vh}
+  .window-content{min-height:370px;padding:16px}
+  .cat{width:145px;height:145px}
+  .yay{font-size:16px}
+}
+@media(max-height:650px){
+  .window-content{min-height:310px;padding:10px}
+  .cat{width:125px;height:125px}
+  .app-window{max-height:78vh}
+}

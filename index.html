@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff8c9">
+  <title>LOVE_LETTER.EXE</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="ambient" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand"><span>♥</span> LOVE_LETTER.EXE</div>
+    <div class="top-icons"><button>♥</button><button>♡</button><button>×</button></div>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section id="intro" class="intro screen">
+      <button id="envelopeBtn" class="envelope-wrap" aria-label="فتح الرسالة">
+        <img src="assets/envelope.png" alt="ظرف حب Pixel Art">
+      </button>
+      <div class="intro-label">From Me For You ♥</div>
+      <div class="hint">Click the envelope to open ♥</div>
+    </section>
+
+    <!-- Retro window -->
+    <section id="appWindow" class="app-window hidden">
+      <div class="titlebar">
+        <div class="title">♥ LOVE_LETTER.EXE</div>
+        <div class="window-buttons"><button>−</button><button>□</button><button>×</button></div>
+      </div>
+
+      <div class="window-strip" aria-hidden="true">
+        <span>♥</span><span>♥</span><span>♥</span>
+      </div>
+
+      <div class="window-content">
+        <!-- Question -->
+        <div id="question" class="panel">
+          <img class="cat" src="assets/cat.png" alt="شخصية Pixel Art تحمل قلباً">
+          <div class="message-box">
+            <div class="message-title">Do you want to be my girlfriend? ♥</div>
+          </div>
+          <button id="yesBtn" class="yes-btn">YES</button>
+        </div>
+
+        <!-- Celebration -->
+        <div id="celebration" class="panel hidden">
+          <div class="yay">Yayyy! I love you ♡</div>
+          <img class="cat celebrate-cat" src="assets/cat.png" alt="شخصية Pixel Art تحمل قلباً">
+          <div class="message-box small">
+            <div>I'm really happy you can accept me</div>
+          </div>
+          <button id="loveBtn" class="love-btn">I LOVE YOU ♥</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="soundBtn" class="sound-btn" aria-label="الصوت">♫</button>
+  <div id="toast" class="toast">Music ON ♫</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
